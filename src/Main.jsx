@@ -3,7 +3,7 @@ import './global.css'
 import gameLogoB from './assets/memorize-it.png'
 import gameLogoE from './assets/star-wars-game.png'
 
-function App() {
+function Main() {
 	return (
 		<div>
 			<center>
@@ -14,4 +14,4 @@ function App() {
 	)
 }
 
-export default App
+export default Main

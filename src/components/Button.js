@@ -7,13 +7,9 @@ const Button = (props) => (
     </Fragment>
 )
 
-
 Button.propTypes = {
+    // if we pass a number on the same way pass to the button text
     name: PropTypes.string
-}
-
-Button.defaultProps = {
-    name: 'Empty'
 }
 
 export default Button

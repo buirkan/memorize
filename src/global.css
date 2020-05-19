@@ -14,7 +14,9 @@ html {
 body {
   min-height: 100%;
   font: 400 18px 'Titillium Web', sans-serif;
-  background: linear-gradient(45deg, hsl(261, 42%, 19%), hsla(0, 0%, 0%, 0.89));
+  background: #1e3c72;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #2a5298, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #2a5298, #1e3c72);
   -webkit-font-smoothing: antialiased;
 }
 

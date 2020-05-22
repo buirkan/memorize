@@ -8,7 +8,6 @@ const Button = (props) => (
 )
 
 Button.propTypes = {
-  // if we pass a number on the same way pass to the button text
   name: PropTypes.string.isRequired,
   callback: PropTypes.func
 }

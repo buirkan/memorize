@@ -1,6 +1,5 @@
 import React, { useState, Fragment } from 'react'
 import { Link } from 'react-router-dom'
-// import PropTypes from 'prop-types'
 import Button from '../components/Button'
 import Round from './Round'
 
@@ -23,7 +22,6 @@ const Game = () => {
   const beginGame = () => (
     <Fragment>
       {/* <Difficult /> */}
-      {/* Beginning a game round */}
       <Round difficult={difficult} boardConfig={board} />
     </Fragment>
   )
@@ -31,14 +29,11 @@ const Game = () => {
   return (
     <div>
       <div className='logout-area'>
-        <nav>
           {/* logout user flow */}
-        </nav>
       </div>
       <div>
-        {/* new game */}
-        <Button name='Novo Jogo' callback={beginGame} />
-        {/* ranking */}
+        <Round boardConfig={board} difficult={difficult} />
+        {/* <Button name='Novo Jogo' callback={beginGame} /> */}
         <Link to='/ranking'>
           <Button name={'Ranking'} />
         </Link>

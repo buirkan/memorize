@@ -32,9 +32,7 @@ const createCards = (allCards) => {
       ...deepCopy(i),
       id: v4()
     }])
-
-    console.log(cardsShuffled)
-
+    // console.log(cardsShuffled)
   return sortShuffleCards(cardsShuffled)
 }
 
@@ -46,10 +44,11 @@ const createCards = (allCards) => {
 const Round = ({ difficult, boardConfig }) => {
   const totalCards = boardConfig.width * boardConfig.heigth
   const [gameCards, setGameCards] = useState(createCards(totalCards))
+  console.log('test')
 
-  useEffect(() => {
-    console.log(`total of cards to game: ${totalCards}`)
-  }, [])
+  return (
+    <div></div>
+  )
 }
 
 Round.propTypes = {

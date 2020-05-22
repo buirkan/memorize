@@ -22,7 +22,7 @@ const Game = () => {
 
   const beginGame = () => (
     <Fragment>
-      <Difficult />
+      {/* <Difficult /> */}
       {/* Beginning a game round */}
       <Round difficult={difficult} boardConfig={board} />
     </Fragment>

@@ -15,7 +15,7 @@ const Card = ({ thumbURL, displaying, callback }) => {
 }
 
 Card.propTypes = {
-  thumbURL: PropTypes.string,
+  thumbURL: PropTypes.string.isRequired,
   displaying: PropTypes.bool,
   callback: PropTypes.func
 }

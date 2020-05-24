@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { v4 } from 'uuid'
 import deepCopy from 'deepcopy'
 import cardsPaths from '../card/cardsPaths'
+import Card from '../card/Card'
 
 /**
  * Shuffle the cards to sort the map of cards
@@ -19,10 +20,10 @@ const createCards = (allCards) => {
     throw `Cards length must be even. Actually is: ${allCards}`
 
   let cardsShuffled = sortShuffleCards(cardsPaths)
-    .slice(0, allCards / 2) // cut on the middle
+    .slice(0, allCards / 2) // cut in the middle
     .map(cardPath => ({
       id: v4(),
-      path: `./src/assets/characters/${cardPath}`,
+      path: `front/src/assets/characters/${cardPath}`,
       displaying: false,
       canShow: true
     }))
@@ -41,7 +42,11 @@ const Round = ({ difficult, boardConfig }) => {
   const [gameCards, setGameCards] = useState(createCards(totalCards))
 
   return (
-    <div></div>
+    <div>
+      {gameCards.map(card => 
+        <Card thumbURL={card.path} displaying={card.displaying} />
+      )}
+    </div>
   )
 }
 

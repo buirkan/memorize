@@ -1,7 +1,7 @@
 const knex = require('../db/connection')
 
 const getUser = async (req, res) => {
-  const userId = req.headers.userAuth
+  const { userId } = req.headers.userAuth
   const user = await knex('users')
     .where('id', userId)
     .select('*')

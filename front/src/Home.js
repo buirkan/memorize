@@ -1,28 +1,23 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
-import './global.css'
+import React, { Fragment } from 'react'
+import {ButtonGroup} from '@chakra-ui/core'
+import Login from './login/Login'
+import Register from './login/Register'
 import gameLogoB from './assets/memorize-it.png'
 import gameLogoE from './assets/star-wars-game.png'
-import Button from './components/Button'
 import Image from './card/Image'
 
 function Home() {
 	return (
-		<div>
+		<Fragment>
 			<div className='logo-system'>
 				<Image src={gameLogoB.valueOf()} alt='main system logo' />
 				<Image src={gameLogoE.valueOf()} alt='main system second logo' />
 			</div>
-			<div className='home-menu-area'>
-				<Link to='/login'>
-					<Button name={'Login'} />
-				</Link>
-				<Link to='/register'>
-					<Button name={'Register'} />
-				</Link>
-			</div>
-		</div>
+			<ButtonGroup spacing={4}>
+				<Login />
+				<Register />
+			</ButtonGroup>
+		</Fragment>
 	)
 }
 

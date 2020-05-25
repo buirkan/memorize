@@ -9,10 +9,12 @@ A Memory game to find all the characters of the Star Wars story
 ...
 
 ### Development
-- Front-end
+- **Front-end**
   - ReactJS
-  - ...
-- Back-end
+  - Chakra UI
+  - React Router
+  - React Icons
+- **Back-end**
   - NodeJs
   - KnexJs
   - SQLite3

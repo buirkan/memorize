@@ -15,8 +15,6 @@ class Main extends Component {
           <Switch>
             <Route path='/' exact={true} component={Home} />
             <Route path='/ranking' component={Ranking} />
-            <Route path='/login' component={Login} />
-            <Route path='/register' component={RegisterUser} />
             <Route path='/game' component={Game} />
             <Redirect from='*' to='/' />
           </Switch>

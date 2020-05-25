@@ -7,8 +7,8 @@ const getRanking = async (req, res) => {
 }
 
 const createEntry = async (req, res) => {
-  const time = req.body
-  const userId = req.headers.auth
+  const { time } = req.body
+  const { userId } = req.headers.auth
 
   const [id] = await knex('ranking')
     .insert({
@@ -18,4 +18,4 @@ const createEntry = async (req, res) => {
   return res.json({ id })
 }
 
-module.exports = { createEnrty, getRanking }
+module.exports = { createEntry, getRanking }

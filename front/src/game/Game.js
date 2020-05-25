@@ -13,15 +13,10 @@ const Game = () => {
   const [difficult, setDifficult] = useState(DIFFUCULT.EASY)
   const board = { width: 6, heigth: 5 }
 
-  const Difficult = () => (
-    <Fragment>
-      {/* set difficult here */}
-    </Fragment>
-  )
+  const Difficult = () => { }
 
   const beginGame = () => (
     <Fragment>
-      {/* <Difficult /> */}
       <Round difficult={difficult} boardConfig={board} />
     </Fragment>
   )
@@ -29,11 +24,10 @@ const Game = () => {
   return (
     <div>
       <div className='logout-area'>
-          {/* logout user flow */}
       </div>
       <div>
         <Round boardConfig={board} difficult={difficult} />
-        {/* <Button name='Novo Jogo' callback={beginGame} /> */}
+        {/* <Button name='new game' callback={beginGame} /> */}
         <Link to='/ranking'>
           <Button name={'Ranking'} />
         </Link>

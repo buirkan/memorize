@@ -1,5 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Main from './Main'
+import { ThemeProvider, theme, CSSReset } from '@chakra-ui/core'
 
-ReactDOM.render(<Main />, document.getElementById('root'))
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <CSSReset />
+    <Main />
+  </ThemeProvider>
+)
+
+ReactDOM.render(<App />, document.getElementById('root'))

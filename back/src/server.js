@@ -4,11 +4,10 @@ const serverRoutes = require('./routes')
 const logStyles = require('./util/logStyles')
 
 const app = express()
+
 app.use(cors)
-
 app.use(express.json())
-
-// app.use(serverRoutes)
+app.use(serverRoutes)
 
 function serverListen(port) {
   app.portNumber = port

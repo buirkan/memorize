@@ -15,7 +15,7 @@ const Game = () => {
 
   const Difficult = () => { }
 
-  const beginGame = () => (
+  const initGame = () => (
     <Fragment>
       <Round difficult={difficult} boardConfig={board} />
     </Fragment>
@@ -27,7 +27,7 @@ const Game = () => {
       </div>
       <div>
         <Round boardConfig={board} difficult={difficult} />
-        {/* <Button name='new game' callback={beginGame} /> */}
+        {/* <Button name='new game' callback={initGame} /> */}
         <Link to='/ranking'>
           <Button name={'Ranking'} />
         </Link>

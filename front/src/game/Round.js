@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { v4 } from 'uuid'
 import deepCopy from 'deepcopy'
-import cardsPaths from '../card/cardsPaths'
+import cardsPaths from '../card/CharactersCards'
 import Card from '../card/Card'
 
 /**
@@ -23,7 +23,7 @@ const createCards = (allCards) => {
     .slice(0, allCards / 2) // cut in the middle
     .map(cardPath => ({
       id: v4(),
-      path: `front/src/assets/characters/${cardPath}`,
+      path: cardPath,
       displaying: false,
       canShow: true
     }))

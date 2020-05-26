@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { useHistory } from 'react-router'
 import {
   Button,
   useDisclosure,
@@ -13,12 +14,12 @@ import {
   FormLabel,
   Input
 } from "@chakra-ui/core"
-import { BsFillPeopleFill } from 'react-icons/bs'
+import { BsFillPeopleFill, BsBookmarkCheck } from 'react-icons/bs'
 
 function Login() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const advance = (e) => { }
+  const history = useHistory()
+  const advance = (e) => history.push('/game')
 
   return (
     <Fragment>
@@ -30,27 +31,26 @@ function Login() {
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Login with your user :)</ModalHeader>
+          <ModalHeader m={3}>Login with your user :)</ModalHeader>
           <ModalCloseButton />
-          <ModalBody pb={6}>
 
+          <ModalBody pb={6}>
             <FormControl>
               <FormLabel>Your Name</FormLabel>
               <Input placeholder="Your name..." />
             </FormControl>
-
             <FormControl mt={4}>
               <FormLabel>E-mail</FormLabel>
               <Input placeholder="Your e-mail..." />
             </FormControl>
           </ModalBody>
-
+          
           <ModalFooter>
-            <Button variantColor="teal" mr={3} onClick={advance}>
-              <span>Login</span>
-            </Button>
             <Button onClick={onClose}>
               <span>Cancel</span>
+            </Button>
+            <Button variantColor="teal" mr={3} onClick={advance} leftIcon={BsBookmarkCheck} >
+              <span>Login</span>
             </Button>
           </ModalFooter>
         </ModalContent>

@@ -19,11 +19,12 @@ import { BsFillPeopleFill, BsBookmarkCheck } from 'react-icons/bs'
 function Login() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const history = useHistory()
+  
   const advance = (e) => history.push('/game')
 
   return (
     <Fragment>
-      <Button onClick={onOpen} leftIcon={BsFillPeopleFill} variantColor="teal" variant="outline" size="lg" >
+      <Button mr={2} onClick={onOpen} leftIcon={BsFillPeopleFill} variantColor="teal" variant="outline" size="lg" >
         <span>Login</span>
       </Button>
 
@@ -46,7 +47,7 @@ function Login() {
           </ModalBody>
           
           <ModalFooter>
-            <Button onClick={onClose}>
+            <Button onClick={onClose} mr={2}>
               <span>Cancel</span>
             </Button>
             <Button variantColor="teal" mr={3} onClick={advance} leftIcon={BsBookmarkCheck} >

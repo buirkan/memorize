@@ -1,11 +1,17 @@
-# Memorize it - A Star Wars Memory Game
+# Memorize - A Star Wars Memory Game
 
 A Memory game to find all the characters of the Star Wars story
 
 ### Introduction
 ...
 
-### How to run
+### How to Run
+...
+
+### Behavior
+...
+
+### Screenshots 
 ...
 
 ### Development
@@ -18,6 +24,5 @@ A Memory game to find all the characters of the Star Wars story
   - NodeJs
   - KnexJs
   - SQLite3
-
 
 > Based on [Memorai](https://github.com/svsem/Memorai)

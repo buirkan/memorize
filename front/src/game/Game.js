@@ -1,6 +1,5 @@
 import React, { useState, Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import Button from '../components/Button'
 import Round from './Round'
 
 const DIFFUCULT = {
@@ -11,7 +10,7 @@ const DIFFUCULT = {
 
 const Game = () => {
   const [difficult, setDifficult] = useState(DIFFUCULT.EASY)
-  const board = { width: 6, heigth: 5 }
+  const board = { width: 5, heigth: 4 }
 
   const Difficult = () => { }
 
@@ -23,13 +22,11 @@ const Game = () => {
 
   return (
     <div>
-      <div className='logout-area'>
-      </div>
+      <div className='logout-area'></div>
       <div>
         <Round boardConfig={board} difficult={difficult} />
-        {/* <Button name='new game' callback={initGame} /> */}
         <Link to='/ranking'>
-          <Button name={'Ranking'} />
+          {/* <Button name={'Ranking'} /> */}
         </Link>
       </div>
     </div>

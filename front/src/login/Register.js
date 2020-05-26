@@ -12,45 +12,22 @@ import {
   FormControl,
   FormLabel,
   Input,
-  useToast
 } from "@chakra-ui/core"
 import { BsPeople, BsFillPersonCheckFill } from 'react-icons/bs'
 import { useHistory } from 'react-router'
 
 function RegisterUser() {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const alertDialog = useToast()
   const history = useHistory()
-
-  const successToast = () => {
-    return alertDialog({
-      title: 'User account created!',
-      description: 'Your account has been created with success',
-      status: 'sucess',
-      duration: 9000,
-      isClosable: false
-    })
-  }
-
-  const errorToast = () => {
-    return alertDialog({
-      title: 'Fail on create your account',
-      description: 'Ops :( An error has occurred on the proccess.',
-      status: 'error',
-      duration: 9000,
-      isClosable: false
-    })
-  }
 
   const createUser = () => { 
     // Create user on db and push to home page
-    successToast()
     history.push('/game')
   }
 
   return (
     <Fragment>
-      <Button onClick={onOpen} rightIcon={BsPeople} variantColor="pink" variant="solid" size="lg">
+      <Button ml={2} onClick={onOpen} rightIcon={BsPeople} variantColor="pink" variant="solid" size="lg">
         <span>Register</span>
       </Button>
       {/* Register Modal */}
@@ -72,7 +49,7 @@ function RegisterUser() {
           </ModalBody>
           
           <ModalFooter>
-            <Button onClick={onClose}>
+            <Button onClick={onClose} mr={2}>
               <span>Cancel</span>
             </Button>
             <Button variantColor="pink" mr={3} onClick={createUser} leftIcon={BsFillPersonCheckFill}>

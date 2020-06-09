@@ -1,4 +1,5 @@
 const knex = require('../db/connection')
+const crypto = require('crypto')
 
 const getUser = async (req, res) => {
   const { userId } = req.headers.userAuth
@@ -9,8 +10,10 @@ const getUser = async (req, res) => {
 }
 
 const createUser = async (req, res) => {
-  const userId = req.headers.auth
+  const userId = crypto.randomBytes(4).toString('HEX')
   const { userName, userEmail } = req.body
+  console.log(`username received: ${userName}`)
+  console.log(`user email received: ${userEmail}`)
 
   const [id] = await knex('users')
     .insert({

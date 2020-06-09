@@ -25,4 +25,4 @@ function serverListen(port) {
   })
 }
 
-serverListen(4444)
+serverListen(process.env.PORT || 3333)

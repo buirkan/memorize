@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import { useHistory } from 'react-router'
 import {
   Button,
@@ -13,22 +13,34 @@ import {
   FormControl,
   FormLabel,
   Input
-} from "@chakra-ui/core"
+} from '@chakra-ui/core'
+import api from '../services/api'
 import { BsFillPeopleFill, BsBookmarkCheck } from 'react-icons/bs'
 
 function Login() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [mail, updateMail] = useState('')
   const history = useHistory()
-  
-  const advance = (e) => history.push('/game')
+
+  const advance = () => {
+    const data = {
+      emailUser: mail
+    }
+
+    // Logon user
+    api.post('login', data)
+      .then(response => {
+        console.log(`User logged in - ${response.data.user?.id}`)
+        history.push('/game')
+      })
+      .catch(error => alert(`Error on login. \nError: ${error}`))
+  }
 
   return (
     <Fragment>
       <Button mr={2} onClick={onOpen} leftIcon={BsFillPeopleFill} variantColor="teal" variant="outline" size="lg" >
         <span>Login</span>
       </Button>
-
-      {/* Login Modal */}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
@@ -36,16 +48,12 @@ function Login() {
           <ModalCloseButton />
 
           <ModalBody pb={6}>
-            <FormControl>
-              <FormLabel>Your Name</FormLabel>
-              <Input placeholder="Your name..." />
-            </FormControl>
             <FormControl mt={4}>
               <FormLabel>E-mail</FormLabel>
-              <Input placeholder="Your e-mail..." />
+              <Input placeholder="Your e-mail..." onChange={(e) => updateMail(e.target.value)} />
             </FormControl>
           </ModalBody>
-          
+
           <ModalFooter>
             <Button onClick={onClose} mr={2}>
               <span>Cancel</span>

@@ -5,10 +5,10 @@ import { Image } from '@chakra-ui/core'
 const Card = ({ card, thumbURL, onClick, isSelected, matched }) => {
   let cardClassValue = 'card'
 
-  if(isSelected)
+  if (isSelected)
     cardClassValue += ' flip'
 
-  if(matched)
+  if (matched)
     cardClassValue += ' match'
 
   return (

@@ -2,6 +2,7 @@ const knex = require('../db/connection')
 
 const logon = async (req, res) => {
   const { emailUser } = req.body
+  console.log(`user e-mail received: ${emailUser}`)
 
   const user = await knex('users')
     .where('email', emailUser)

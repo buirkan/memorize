@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Round from './Round'
 
@@ -14,17 +14,12 @@ const Game = () => {
 
   const Difficult = () => { }
 
-  const initGame = () => (
-    <Fragment>
-      <Round difficult={difficult} boardConfig={board} />
-    </Fragment>
-  )
-
   return (
     <div>
       <div className='logout-area'></div>
       <div>
         <Round boardConfig={board} difficult={difficult} />
+        {/* <Button>Start Game</Button> */}
         <Link to='/ranking'>
           {/* <Button name={'Ranking'} /> */}
         </Link>

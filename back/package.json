@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "A backend to memory game system to register/login users and ranking",
   "main": "server.js",
-  "author": "Felipe Silva",
+  "author": "Felipe Silva <felipealvessilva64@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "prod": "node src/server.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

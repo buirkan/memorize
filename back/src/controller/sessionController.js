@@ -10,7 +10,7 @@ const logon = async (req, res) => {
     .first()
 
   if (!user)
-    return res.status(400).json({ error: `No user found with email ${emailUser} :(` })
+    return res.status(400).json({ error: `No user found with email ${emailUser}` })
 
   return res.json({ user })
 }

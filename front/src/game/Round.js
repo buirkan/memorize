@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
+import { GiExitDoor } from 'react-icons/gi'
 import PropTypes from 'prop-types'
 import { v4 } from 'uuid'
 import deepCopy from 'deepcopy'
 import cardsPaths from '../card/CharactersCards'
 import Card from '../card/Card'
+import { Button } from '@chakra-ui/core'
 
 /**
  * Shuffle the cards to sort the map of cards
@@ -99,22 +101,29 @@ const Round = ({ difficult, boardConfig }) => {
   }, [cardsSelected])
 
   const endGame = () => {
-    alert('Congrats! Game Finished.')
+    alert('Game Finished. Congratulations!')
     history.push('/game')
   }
 
+  const redirectToHome = () => history.push('/')
+
   return (
-    <div className="deck-container">
-      <ul className="deck">
-        {cards.map(card => <Card
-          key={card.id}
-          card={card}
-          thumbURL={card.path}
-          isSelected={card.isSelected}
-          matched={card.matched}
-          onClick={() => handleCardClick(card)} />
-        )}
-      </ul>
+    <div>
+      <Button leftIcon={GiExitDoor} variant="solid" variantColor="teal" m={5} onClick={redirectToHome}>
+        Exit
+      </Button>
+      <div className="deck-container">
+        <ul className="deck">
+          {cards.map(card => <Card
+            key={card.id}
+            card={card}
+            thumbURL={card.path}
+            isSelected={card.isSelected}
+            matched={card.matched}
+            onClick={() => handleCardClick(card)} />
+          )}
+        </ul>
+      </div>
     </div>
   )
 }

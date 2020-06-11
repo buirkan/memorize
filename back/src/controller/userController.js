@@ -2,11 +2,17 @@ const knex = require('../db/connection')
 const crypto = require('crypto')
 
 const getUser = async (req, res) => {
-  const { userId } = req.headers.userAuth
+  const { userId } = req.params
   const user = await knex('users')
     .where('id', userId)
     .select('*')
   return res.json({ user })
+}
+
+const getUsers = async (req, res) => {
+  const users = await knex('users')
+    .select('*')
+  return res.json({ users })
 }
 
 const createUser = async (req, res) => {
@@ -24,4 +30,4 @@ const createUser = async (req, res) => {
   return res.json(id)
 }
 
-module.exports = { createUser, getUser }
+module.exports = { createUser, getUser, getUsers }

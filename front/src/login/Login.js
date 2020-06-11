@@ -27,13 +27,15 @@ function Login() {
       emailUser: mail
     }
 
-    // Logon user
     api.post('login', data)
       .then(response => {
         console.log(`User logged in - ${response.data.user?.id}`)
         history.push('/game')
       })
-      .catch(error => alert(`Error on login. \nError: ${error}`))
+      .catch(error => {
+        alert('An error has occurred on your user login. \nTry Again please')
+        console.log(`Error on login. \nError: ${error}`)
+      })
   }
 
   return (

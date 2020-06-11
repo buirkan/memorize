@@ -28,15 +28,14 @@ function RegisterUser() {
       userName: fullName,
       userEmail: mail
     }
-
-    // Creating user in db
+    
     api.post('createUser', data)
       .then(response => {
         console.log(`User id: ${response.data.id}`)
-        alert('Usuário criado com sucesso!')
+        alert('User created with success')
         history.push('/game')
       })
-      .catch(error => alert(`Erro ao criar o usuário - ${error}`))
+      .catch(error => alert(`User register failed - ${error}`))
   }
 
   return (

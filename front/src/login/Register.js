@@ -12,9 +12,12 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Stack,
+  Box,
 } from '@chakra-ui/core'
 import api from '../services/api'
 import { BsPeople, BsFillPersonCheckFill } from 'react-icons/bs'
+import { FcOnlineSupport } from 'react-icons/fc'
 import { useHistory } from 'react-router'
 
 function RegisterUser() {
@@ -28,11 +31,16 @@ function RegisterUser() {
       userName: fullName,
       userEmail: mail
     }
-    
+
     api.post('createUser', data)
       .then(response => {
-        console.log(`User id: ${response.data.id}`)
+        let userId = response.data?.id
+
         alert('User created with success')
+
+        console.log(`User id created: ${userId}`)
+        localStorage.setItem('userId', userId)
+        
         history.push('/game')
       })
       .catch(error => alert(`User register failed - ${error}`))
@@ -47,7 +55,12 @@ function RegisterUser() {
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader m={5}>Welcome! We need some informations to create your user in our system</ModalHeader>
+          <ModalHeader m={5}>
+            <Stack isInline>
+              <h2>Welcome! Register now</h2>
+              <Box size="30px" as={FcOnlineSupport} ml={3} />
+            </Stack>
+          </ModalHeader>
           <ModalCloseButton />
 
           <ModalBody pb={6}>

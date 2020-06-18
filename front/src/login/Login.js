@@ -12,10 +12,13 @@ import {
   ModalCloseButton,
   FormControl,
   FormLabel,
-  Input
+  Input,
+  Box,
+  Stack
 } from '@chakra-ui/core'
 import api from '../services/api'
 import { BsFillPeopleFill, BsBookmarkCheck } from 'react-icons/bs'
+import { FcServices } from 'react-icons/fc'
 
 function Login() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -29,7 +32,10 @@ function Login() {
 
     api.post('login', data)
       .then(response => {
-        console.log(`User logged in - ${response.data.user?.id}`)
+        let userId = response.data.user?.id
+        console.log(`User logged in - ${userId}`)
+        // saving local user logon
+        localStorage.setItem('userId', userId)
         history.push('/game')
       })
       .catch(error => {
@@ -46,7 +52,12 @@ function Login() {
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader m={3}>Login with your user :)</ModalHeader>
+          <ModalHeader m={3}>
+            <Stack isInline>
+              <h2>Login with your user</h2>
+              <Box size="30px" as={FcServices} ml={3} />
+            </Stack>
+          </ModalHeader>
           <ModalCloseButton />
 
           <ModalBody pb={6}>
@@ -60,7 +71,7 @@ function Login() {
             <Button onClick={onClose} mr={2}>
               <span>Cancel</span>
             </Button>
-            <Button variantColor="teal" mr={3} onClick={advance} leftIcon={BsBookmarkCheck} >
+            <Button variantColor="teal" mr={3} onClick={advance} leftIcon={BsBookmarkCheck}>
               <span>Login</span>
             </Button>
           </ModalFooter>

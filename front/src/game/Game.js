@@ -1,30 +1,21 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import Round from './Round'
-
-const DIFFUCULT = {
-  EASY: { timer: 300000 },
-  MEDIUM: { timer: 180000 },
-  HARD: { timer: 120000 }
-}
+import React, { Fragment } from 'react'
+import { Button } from '@chakra-ui/core'
+import { useHistory } from 'react-router-dom'
 
 const Game = () => {
-  const [difficult, setDifficult] = useState(DIFFUCULT.EASY)
-  const board = { width: 5, heigth: 4 }
+  const history = useHistory()
 
-  const Difficult = () => { }
+  const handleStartGame = () => {
+    history.push('/round')
+  }
 
   return (
-    <div>
-      <div className='logout-area'></div>
+    <Fragment>
       <div>
-        <Round boardConfig={board} difficult={difficult} />
-        {/* <Button>Start Game</Button> */}
-        <Link to='/ranking'>
-          {/* <Button name={'Ranking'} /> */}
-        </Link>
+        <Button onClick={handleStartGame}>Start Game</Button>
+        <Button onClick={() => history.push('/ranking')}>Ranking</Button>
       </div>
-    </div>
+    </Fragment>
   )
 }
 

@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
-import { GiExitDoor } from 'react-icons/gi'
+import { GiHouse } from 'react-icons/gi'
 import PropTypes from 'prop-types'
 import { v4 } from 'uuid'
 import deepCopy from 'deepcopy'
 import cardsPaths from '../card/CharactersCards'
 import Card from '../card/Card'
 import { Button } from '@chakra-ui/core'
+import Timer from './Timer'
+
+const DIFFUCULT = {
+  EASY: { timer: 300000 },
+  MEDIUM: { timer: 180000 },
+  HARD: { timer: 120000 }
+}
+
+const Difficult = () => { }
 
 /**
  * Shuffle the cards to sort the map of cards
@@ -35,10 +44,12 @@ const createCards = (allCards) => {
   return sortShuffleCards(cardsShuffled)
 }
 
-const Round = ({ difficult, boardConfig }) => {
-  const totalCards = boardConfig.width * boardConfig.heigth
+const Round = (props) => {
+  const board = { width: 5, heigth: 4 }
+  const totalCards = board.width * board.heigth
   const history = useHistory()
 
+  const [difficult, setDifficult] = useState(DIFFUCULT.EASY)
   const [cards, setCards] = useState(createCards(totalCards))
   const [firstCard, setFirstCard] = useState(null)
   const [secondCard, setSecondCard] = useState(null)
@@ -105,14 +116,16 @@ const Round = ({ difficult, boardConfig }) => {
     history.push('/game')
   }
 
-  const redirectToHome = () => history.push('/')
+  const redirectToHome = () => history.push('/game')
 
   return (
     <div>
-      <Button leftIcon={GiExitDoor} variant="solid" variantColor="teal" m={5} onClick={redirectToHome}>
-        Exit
+      <Button leftIcon={GiHouse} variant="solid" variantColor="teal" m={5} onClick={redirectToHome}>
+        Back
       </Button>
       <div className="deck-container">
+        {/* Fix difficult selection */}
+        {/* <Timer timerCount={300000} />  */}
         <ul className="deck">
           {cards.map(card => <Card
             key={card.id}
